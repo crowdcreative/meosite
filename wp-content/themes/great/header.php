@@ -14,6 +14,8 @@
 	<![endif]-->
 	<?php mts_head(); ?>
 	<?php wp_head(); ?>
+	
+	<link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
 </head>
 <?php flush(); ?>
 <body id ="blog" <?php body_class('main'); ?>>
@@ -41,6 +43,12 @@
 							</h2><!-- END #logo -->
 					<?php } ?>
 				<?php } ?> 
+				
+				<div id="apresentacao">
+					<span>Ajudamos a sua empresa ou marca a se destacar na internet.</span>
+					<span>Somos uma Rede de profissionais criativos; um e-commerce de produtos e revista digital de conteúdo didático; especializados na presença de marcas e empresas na internet.</span>
+				</div>
+				
 				<div class="secondary-navigation">
 					<nav id="navigation" >
 						<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>

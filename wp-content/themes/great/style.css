@@ -103,7 +103,7 @@ body {
     line-height: 1;
     font: 14px/19px arial, sans-serif;
     color: #555555;
-    background-color: #ffffff;
+    background-color: #F5F5ED !important;
 }
 ::-moz-selection {
     background: #222;
@@ -219,12 +219,27 @@ body > header {
     margin: 40px 0 40px 0;
 }
 #logo a { text-transform: none }
+
+#apresentacao {
+    float: left;
+    margin: 60px 0 0 50px;
+    width: 420px;
+}
+#apresentacao span {
+    float: left;
+    line-height: 20px;
+    margin: 0 0 10px;
+}
+#apresentacao i {
+}
+
+
 /*-[ Navigation ]-----------------*/
 .secondary-navigation .children li .sf-sub-indicator { display: none }
 .secondary-navigation {
     display: block;
     float: right;
-    width: 605px;
+    width: 105px;
     height: 66px;
 }
 .secondary-navigation ul li:last-child a { margin-right: 0 }
