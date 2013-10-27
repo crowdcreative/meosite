@@ -476,6 +476,26 @@ body > header {
     background: #444;
     color: #fff;
 }
+
+.readExpander{
+	border-bottom: 1px solid;
+    color: #D61F3B;
+    margin-left: 9px;
+	-webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+	cursor:pointer;
+}
+
+.readExpander a:hover {
+    background: #444;
+    color: #fff;
+}
+
+#contentComplete{
+	display:none;
+}
+
 .ss-full-width {
     background: white;
     padding: 20px;
@@ -503,8 +523,10 @@ body > header {
     top: 0;
 }
 .views{
-    font-family: gudea,arial;
+    font-family: Gudea,arial;
     font-size: 10px;
+    font-style: italic;
+    font-weight: normal;
     margin: 0 0 0 5px;
     opacity: 0.4;
     position: relative;

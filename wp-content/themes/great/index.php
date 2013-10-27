@@ -7,7 +7,7 @@
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post excerpt">
-						<div class="post-date"><time><?php the_time('j/m/Y'); ?></time></div>
+						<div class="post-date"><time><?php echo TimeAgo(); ?></time></div>
 						<header>
 							<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
 							<?php if ( has_post_thumbnail() ) { ?> 
@@ -25,7 +25,20 @@
 						</header><!--.header-->
 						
 						<div class="post-content image-caption-format-1">
-							<?php echo excerpt(35) . "...";?><a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+							<?php if (tem_images($postID) == 'tem'){ ?>
+								<?php echo excerpt(35) . "...";?>
+								<a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+							<?php }else{ ?>
+								<?php 
+									// Sistema para mostrar todo o post se ele não tiver imagens
+									$postContent =  get_post_field('post_content', $postID);
+									$postContentpreview = substr($postContent, 0, 220);
+									$postContentcomplete = substr($postContent, 220);
+									echo $postContentpreview . "<span class='pontinhos'>...</span>";
+									echo "<span id='contentComplete'>" . $postContentcomplete . "</span>";
+								?>
+								<a class="readExpander" title="<?php the_title(); ?>" rel="bookmark">Ler mais</a>
+							<?php } ?>
 						</div>
 						<div class="post-info">
 						Por <?php the_author_meta("display_name"); ?> | <?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">'.$category[0]->cat_name.'</a>';?> 

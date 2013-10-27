@@ -115,6 +115,46 @@ function widgetized_footer() {
 <?php
 }
 
+/*  Função para ver se mais de uma imagem em um post  */
+function tem_images($postID) {
+	global $post;
+	
+	$attachments = get_children(array('post_parent'=>$postID, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID'));
+	$attachmentsTotal = count($attachments);
+
+	if($attachmentsTotal >= 2){
+		return "tem";
+	}else{
+		return "naotem";
+	}
+}
+
+// Função para deixar datas iguais a do Facebook
+
+function TimeAgo() { 
+    $post_date = get_the_time('U');
+    $delta = time() - $post_date;
+    if ( $delta < 60 ) {
+        echo 'Menos de um minutos atrás';
+    }
+    elseif ($delta > 60 && $delta < 120){
+        echo 'Um minuto atrás';
+    }
+    elseif ($delta > 120 && $delta < (60*60)){
+        echo strval(round(($delta/60),0)), ' minutos atrás';
+    }
+    elseif ($delta > (60*60) && $delta < (120*60)){
+        echo 'Há uma hora atrás';
+    }
+    elseif ($delta > (120*60) && $delta < (24*60*60)){
+        echo strval(round(($delta/3600),0)), ' horas atrás';
+    }
+    else {
+        echo the_time('j\<\s\u\p\>S\<\/\s\u\p\> M y g:i a');
+    }
+}
+
+
 /*-----------------------------------------------------------------------------------*/
 /*	Custom Comments template
 /*-----------------------------------------------------------------------------------*/

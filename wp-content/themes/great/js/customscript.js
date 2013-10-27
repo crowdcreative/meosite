@@ -140,8 +140,13 @@
 
 $(document).ready(function() {
 
+	$('.readExpander').click(function(){
+		$('.pontinhos').hide();
+		$('#contentComplete').css('display','inline');
+		$(this).hide();
+	});
+	
 	// Sistema de escrita automática
-
 	
 	$('#target').teletype({
 	  text: [
