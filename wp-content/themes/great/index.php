@@ -27,8 +27,8 @@
 							<?php echo excerpt(35);?>
 						</div>
 						<div class="post-info">
-						by <?php the_author_posts_link(); ?> | <?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">'.$category[0]->cat_name.'</a>';?> 
-						<div class="readMore"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Read More</a></div>
+						Por <?php the_author_posts_link(); ?> | <?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">'.$category[0]->cat_name.'</a>';?> 
+						<div class="readMore"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais</a></div>
 						</div>
 					</div><!--.post excerpt-->
 				<?php endwhile; else: ?>

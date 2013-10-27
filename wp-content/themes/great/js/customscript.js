@@ -20,7 +20,134 @@
 	
 });
 
+	// Sistema de escrita automática
+
+	var contador = 0;
+	
+	
+	(function ($) {
+	  // writes the string
+	  //
+	  // @param jQuery $target
+	  // @param String str
+	  // @param Numeric cursor
+	  // @param Numeric delay
+	  // @param Function cb
+	  // @return void
+	  
+	  function typeString($target, str, cursor, delay, cb) {
+		$target.html(function (_, html) {
+		  return html + str[cursor];
+		});
+		
+		if (cursor < str.length - 1) {
+		  setTimeout(function () {
+			typeString($target, str, cursor + 1, delay, cb);
+		  }, delay);
+		}
+		else {
+		  cb();
+		}
+	  }
+	  
+	  // clears the string
+	  //
+	  // @param jQuery $target
+	  // @param Numeric delay
+	  // @param Function cb
+	  // @return void
+	  function deleteString($target, delay, cb) {
+		var length;
+		
+		$target.html(function (_, html) {
+		  length = html.length;
+		  return html.substr(0, length - 1);
+		});
+		
+		if (length > 1) {
+		  setTimeout(function () {
+			deleteString($target, delay, cb);
+		  }, delay);
+		}
+		else {
+		  cb();
+		}
+	  }
+
+	  // jQuery hook
+	  $.fn.extend({
+		teletype: function (opts) {
+		  var settings = $.extend({}, $.teletype.defaults, opts);
+		  
+		  return $(this).each(function () {
+			(function loop($tar, idx) {
+			  // type
+			  var seuSua = $("#seusua");
+			  var destacado = $("#destacado");
+			  typeString($tar, settings.text[idx], 0, settings.delay, function () {
+				// delete
+				
+				if(contador < 4){
+					// Sistema de troca Seu/Sua
+					var targetText = $("#target").text();
+					if(targetText == 'marca' || targetText == 'empresa' || targetText == 'loja' || targetText == 'organização'){
+						seuSua.text('Sua');
+						destacado.text('destacada');
+					}
+					// tempo de espera até executar o delete
+					setTimeout(function () {
+						deleteString($tar, settings.delayb, function () {
+							loop($tar, (idx + 1) % settings.text.length);
+						});
+						contador++;
+					}, settings.pause);
+					}else{
+						$("#target").css({"background":"#ffffff"});
+						seuSua.text('Seu');
+						destacado.text('destacado');
+					}
+			  });
+			  
+				
+			
+			}($(this), 0));
+		  });
+		}
+	  });
+
+	  // plugin defaults  
+	  $.extend({
+		teletype: {
+		  defaults: {
+			delay: 100,
+			delayb:60,
+			pause: 5000,
+			text: []
+		  }
+		}
+	  });
+	}(jQuery));
+
 $(document).ready(function() {
+
+	// Sistema de escrita automática
+
+	
+	$('#target').teletype({
+	  text: [
+		'site',
+		'marca',
+		'empresa',
+		'loja'
+	  ]
+	});
+
+$('#cursor').teletype({
+  text: ['_', ' '],
+  delay: 0,
+  pause: 500
+});
+
 	// Create the dropdown base
    $("<select />").appendTo("#navigation");
       

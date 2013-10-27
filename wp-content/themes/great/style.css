@@ -14,6 +14,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+	    
 }
 html {
     overflow-x: hidden;
@@ -32,7 +33,7 @@ table {
 }
 button, input, select, textarea { margin: 0 }
 :focus { outline: 0 }
-a:link { -webkit-tap-highlight-color: #FF5E99 }
+a:link { -webkit-tap-highlight-color: #FF5E99;  }
 img, video, object, embed {
     max-width: 100%;
     height: auto!important;
@@ -164,15 +165,50 @@ a:hover { color: #00A8FF }
 a:link, a:visited, a:active { text-decoration: none }
 :target { padding-top: 20px }
 /*-[ Main container ]---------------*/
+
+#target{
+	-webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    transition: all 1s linear;
+	float: left;
+    margin-right: 5px;
+}
+
+#orcamento{
+    background: none repeat scroll 0 0 #D61F3B;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font-family: sanchez,serif;
+    font-size: 11px;
+    padding: 6px 10px;
+    text-transform: uppercase;
+}
+
+#orc-descricao{
+    float: right;
+    font-family: sanchez,serif;
+    font-size: 11px;
+	margin: 50px 0 0;
+}
+
+.post-info > a {
+    color: #D61F3B !important;
+}
+
+time {
+    color: #D61F3B;
+    font-family: sanchez,serif;
+    font-size: 10px;
+}
+
 .main-container {
-    width: 960px;
-    margin: 0 auto;
+   clear: both;
+    margin: 0 auto 30px;
     max-width: 95%;
-    background: #fff;
-    clear: both;
-    padding: 0 2.15%;
-    border: 1px solid #E9E9E9;
-    margin-bottom: 30px;
+    padding: 0;
+    width: 1020px;
 }
 #page, .container {
     max-width: 1020px;
@@ -222,8 +258,10 @@ body > header {
 
 #apresentacao {
     float: left;
-    margin: 60px 0 0 50px;
-    width: 420px;
+    font-family: "Sanchez",serif;
+    font-size: 15px;
+    margin: 51px 0 0 50px;
+    width: 490px;
 }
 #apresentacao span {
     float: left;
@@ -231,8 +269,10 @@ body > header {
     margin: 0 0 10px;
 }
 #apresentacao i {
+    color: #D61F3B;
+    font-family: sanchez,serif;
+    font-style: normal;
 }
-
 
 /*-[ Navigation ]-----------------*/
 .secondary-navigation .children li .sf-sub-indicator { display: none }
@@ -435,7 +475,6 @@ body > header {
     margin-bottom: 35px;
     overflow: hidden;
     padding-bottom: 35px;
-    background-color: #fff;
     border-bottom: 1px solid #E9E9E9;
     position: relative;
 }
@@ -454,7 +493,6 @@ body > header {
     width: 100%;
 }
 #featured-thumbnail {
-    background: #ddd;
     float: left;
     width: 47.6%;
     margin-right: 3.5%;
@@ -494,7 +532,10 @@ body > header {
     width: 100%;
     width: 620px;
 }
-.title a { color: #444 }
+.title a {
+    color: #D61F3B;
+    font-family: Sanchez,serif;
+ }
 .page h1.title { margin-bottom: 20px }
 .post-info {
     display: block;
@@ -832,7 +873,10 @@ nav #searchform fieldset {
     margin-bottom: 27px;
     overflow: hidden;
 }
-#sidebars .widget { background: white }
+#sidebars .widget { 
+
+ }
+ 
 .widget .title {
     font-weight: bold;
     text-transform: uppercase;

@@ -15,7 +15,9 @@
 	<?php mts_head(); ?>
 	<?php wp_head(); ?>
 	
-	<link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Sanchez:400,400italic|Radley:400,400italic' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="./wp-content/themes/great/images/favicon.png">
+
 </head>
 <?php flush(); ?>
 <body id ="blog" <?php body_class('main'); ?>>
@@ -45,11 +47,22 @@
 				<?php } ?> 
 				
 				<div id="apresentacao">
-					<span>Ajudamos a sua empresa ou marca a se destacar na internet.</span>
-					<span>Somos uma Rede de profissionais criativos; um e-commerce de produtos e revista digital de conteúdo didático; especializados na presença de marcas e empresas na internet.</span>
+					<span><div id="seusua" style="float: left; padding-right: 6px;">Seu</div> <i style="background: none repeat scroll 0% 0% rgb(130, 255, 0); padding: 0px 3px;" id="target"></i> <div id="destacado" style="float: left; padding-right: 6px;">destacado</div> na internet.</span>
+					<span>Somos uma rede de profissionais <i>criativos</i>;<br>
+					 um <i>e-commerce</i> de produtos/serviços e<br>
+					 uma revista digital de <i>conteúdo</i> didático.</span>
+					<span>Tudo focado em web e marketing.</span>
 				</div>
 				
-				<div class="secondary-navigation">
+				<div id="orc-descricao">
+					Quero fazer um site e minhas ações digitais com vocês!
+				</div>
+				
+				<div id="orcamento">
+					<span>Orçamento grátis</span>
+				</div>
+				
+				<div class="secondary-navigation" style="display:none">
 					<nav id="navigation" >
 						<?php if ( has_nav_menu( 'primary-menu' ) ) { ?>
 							<?php wp_nav_menu( array( 'theme_location' => 'primary-menu', 'menu_class' => 'menu', 'container' => '' ) ); ?>
