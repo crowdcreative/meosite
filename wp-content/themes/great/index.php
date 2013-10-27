@@ -5,6 +5,7 @@
 		<article class="article">
 			<div id="content_box">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?php $postID =  get_the_ID(); ?>
 					<div class="post excerpt">
 						<div class="post-date"><time><?php the_time('j/m/Y'); ?></time></div>
 						<header>
@@ -19,16 +20,16 @@
 							</a>
 					
 							<h2 class="title">
-								<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a><span class="views"><?php echo post_read_time() . " | " . get_post_meta( $postID, "_count-views_all", true) . " visualização"; ?></span>
 							</h2>
 						</header><!--.header-->
 						
 						<div class="post-content image-caption-format-1">
-							<?php echo excerpt(35);?>
+							<?php echo excerpt(35) . "...";?><a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
 						</div>
 						<div class="post-info">
-						Por <?php the_author_posts_link(); ?> | <?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">'.$category[0]->cat_name.'</a>';?> 
-						<div class="readMore"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais</a></div>
+						Por <?php the_author_meta("display_name"); ?> | <?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">'.$category[0]->cat_name.'</a>';?> 
+						
 						</div>
 					</div><!--.post excerpt-->
 				<?php endwhile; else: ?>

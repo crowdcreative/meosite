@@ -15,12 +15,17 @@
 	<?php mts_head(); ?>
 	<?php wp_head(); ?>
 	
-	<link href='http://fonts.googleapis.com/css?family=Sanchez:400,400italic|Radley:400,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="./wp-content/themes/great/images/favicon.png">
 
 </head>
 <?php flush(); ?>
 <body id ="blog" <?php body_class('main'); ?>>
+
+	<div id="rede">
+	
+	</div>
+
 	<header class="main-header">
 		<div id="header"">
 			<div class="container">
@@ -47,11 +52,12 @@
 				<?php } ?> 
 				
 				<div id="apresentacao">
-					<span><div id="seusua" style="float: left; padding-right: 6px;">Seu</div> <i style="background: none repeat scroll 0% 0% rgb(130, 255, 0); padding: 0px 3px;" id="target"></i> <div id="destacado" style="float: left; padding-right: 6px;">destacado</div> na internet.</span>
-					<span>Somos uma rede de profissionais <i>criativos</i>;<br>
+					<span><div id="seusua" style="float: left; padding-right: 6px;">Seu</div> <i style="background: #ffffff; padding: 0px 3px;" id="target"></i> <div id="destacado" style="float: left; padding-right: 6px;">destacado</div> na internet.</span>
+					<span class="small">Somos uma rede de profissionais <i>criativos</i>;<br>
 					 um <i>e-commerce</i> de produtos/serviços e<br>
-					 uma revista digital de <i>conteúdo</i> didático.</span>
-					<span>Tudo focado em web e marketing.</span>
+					 uma revista digital de <i>conteúdo</i> didático.<br/>
+					 Tudo focado em web e marketing.</span>
+				
 				</div>
 				
 				<div id="orc-descricao">

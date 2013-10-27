@@ -174,13 +174,21 @@ a:link, a:visited, a:active { text-decoration: none }
     margin-right: 5px;
 }
 
+#rede{
+    background: url("../great/images/mask-content.png") no-repeat scroll center -220px rgba(0, 0, 0, 0);
+    height: 1800px;
+    opacity: 0.05;
+    position: fixed;
+    width: 100%;
+}
+	
 #orcamento{
     background: none repeat scroll 0 0 #D61F3B;
     border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
     cursor: pointer;
     float: right;
-    font-family: sanchez,serif;
+    font-family: Gudea,serif;
     font-size: 11px;
     padding: 6px 10px;
     text-transform: uppercase;
@@ -188,7 +196,7 @@ a:link, a:visited, a:active { text-decoration: none }
 
 #orc-descricao{
     float: right;
-    font-family: sanchez,serif;
+    font-family: Gudea,serif;
     font-size: 11px;
 	margin: 50px 0 0;
 }
@@ -199,7 +207,7 @@ a:link, a:visited, a:active { text-decoration: none }
 
 time {
     color: #D61F3B;
-    font-family: sanchez,serif;
+    font-family: Gudea,serif;
     font-size: 10px;
 }
 
@@ -216,13 +224,14 @@ time {
     overflow: visible;
 }
 #page {
-    padding-top: 25px;
+    padding-top: 45px;
     min-height: 100px;
     float: none;
     clear: both;
     overflow: hidden;
 }
 #header .container {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
     float: left;
     width: 100%;
 }
@@ -252,27 +261,37 @@ body > header {
     float: left;
     display: block;
     line-height: 1;
-    margin: 40px 0 40px 0;
+    margin: 15px 0 30px;
 }
 #logo a { text-transform: none }
 
 #apresentacao {
     float: left;
-    font-family: "Sanchez",serif;
-    font-size: 15px;
-    margin: 51px 0 0 50px;
-    width: 490px;
+    font-family: "Gudea",serif;
+    font-size: 14px;
+    margin: 42px 0 0 50px;
+    width: 400px;
 }
 #apresentacao span {
     float: left;
-    line-height: 20px;
+    line-height: 22px;
     margin: 0 0 10px;
 }
+
 #apresentacao i {
     color: #D61F3B;
-    font-family: sanchez,serif;
-    font-style: normal;
+    font-family: Gudea,serif;
 }
+
+#apresentacao .small {
+    clear: both;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 16px !important;
+}
+
+
+
 
 /*-[ Navigation ]-----------------*/
 .secondary-navigation .children li .sf-sub-indicator { display: none }
@@ -426,11 +445,12 @@ body > header {
 }
 .single_page { background-color: white }
 .post-content {
+    font-family: gudea;
     font-size: 14px;
     line-height: 22px;
+    margin-bottom: 15px;
     margin-top: 15px;
     padding-bottom: 15px;
-    margin-bottom: 15px;
 }
 .post-single-content {
     font-size: 14px;
@@ -444,18 +464,14 @@ body > header {
     float: left;
 }
 .readMore {
-    float: right;
-    color: #fff;
-    font-size : 12px;
-}
-.readMore a {
-    background: #51a2c1;
-    color: #fff !important;
-    padding: 3px 5px;
-    -webkit-transition: all 0.25s linear;
+    border-bottom: 1px solid;
+    color: #D61F3B;
+    margin-left: 9px;
+	-webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     transition: all 0.25s linear;
 }
+
 .readMore a:hover {
     background: #444;
     color: #fff;
@@ -479,13 +495,22 @@ body > header {
     position: relative;
 }
 .post-date {
-    position: absolute;
-    top: 10%;
+    background: none repeat scroll 0 0 #F5F5ED;
+    color: #51A2C1;
     left: 5px;
-    background: #fff;
-    color: #51a2c1;
     padding: 2px 6px;
+    position: absolute;
+    top: 0;
 }
+.views{
+    font-family: gudea,arial;
+    font-size: 10px;
+    margin: 0 0 0 5px;
+    opacity: 0.4;
+    position: relative;
+    top: -2px;
+}
+
 .wp-post-image { float: left }
 .featured-thumbnail {
     max-width: 300px;
@@ -494,9 +519,9 @@ body > header {
 }
 #featured-thumbnail {
     float: left;
-    width: 47.6%;
     margin-right: 3.5%;
-    padding: 5px;
+    padding: 0;
+    width: 24%;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     transition: all 0.25s linear;
@@ -534,7 +559,7 @@ body > header {
 }
 .title a {
     color: #D61F3B;
-    font-family: Sanchez,serif;
+    font-family: Gudea,serif;
  }
 .page h1.title { margin-bottom: 20px }
 .post-info {
@@ -903,6 +928,7 @@ nav #searchform fieldset {
 body > footer {
     overflow: hidden;
     width: 100%;
+	display:none;
 }
 body > footer .footeText {
     width: 960px;

@@ -12,6 +12,15 @@
 	
 	$(document).ready(function($) { 
 	
+	$(window).bind('scroll',function(e){
+		parallaxScroll();
+	});
+		
+	function parallaxScroll(){
+		var scrolled = $(window).scrollTop();
+		$('#rede').css('top',-(0+(scrolled*.05))+'px');
+	} 
+	
 	$('ul.menu, ul#children, ul.sub-menu').superfish({ 
 		delay:       100,								// 0.1 second delay on mouseout 
 		animation:   {opacity:'show',height:'show'},	// fade-in and slide-down animation 
@@ -102,7 +111,8 @@
 						contador++;
 					}, settings.pause);
 					}else{
-						$("#target").css({"background":"#ffffff"});
+						$("#target").css({"background":"transparent"});
+						$("#target").css({"padding":"0"});
 						seuSua.text('Seu');
 						destacado.text('destacado');
 					}
