@@ -53,10 +53,9 @@
 				
 				<div id="apresentacao">
 					<span><div id="seusua" style="float: left; padding-right: 6px;">Seu</div> <i style="background: #ffffff; padding: 0px 3px;" id="target"></i> <div id="destacado" style="float: left; padding-right: 6px;">destacado</div> na internet.</span>
-					<span class="small">Somos uma rede de profissionais <i>criativos</i>;<br>
-					 um <i>e-commerce</i> de produtos/serviços e<br>
-					 uma revista digital de <i>conteúdo</i> didático.<br/>
-					 Tudo focado em web e marketing.</span>
+					<span class="small"><i>Encontre profissionais</i> criativos para lhe ajudar;<br>
+					 adquira produtos e serviços para <i>melhorar seu site</i><br>
+					  <i>ganhe conhecimento</i> para administrar sua marca online.</span>
 				
 				</div>
 				

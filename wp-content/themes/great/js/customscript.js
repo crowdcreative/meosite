@@ -103,6 +103,10 @@
 						seuSua.text('Sua');
 						destacado.text('destacada');
 					}
+					if(targetText == 'comércio' ){
+						seuSua.text('Seu');
+						destacado.text('destacado');
+					}
 					// tempo de espera até executar o delete
 					setTimeout(function () {
 						deleteString($tar, settings.delayb, function () {
@@ -129,9 +133,9 @@
 	  $.extend({
 		teletype: {
 		  defaults: {
-			delay: 100,
-			delayb:60,
-			pause: 5000,
+			delay: 80,
+			delayb:40,
+			pause: 2700,
 			text: []
 		  }
 		}
@@ -141,8 +145,8 @@
 $(document).ready(function() {
 
 	$('.readExpander').click(function(){
-		$('.pontinhos').hide();
-		$('#contentComplete').css('display','inline');
+		$(this).parents('.post').find('.pontinhos').hide();
+		$(this).parents('.post').find('#contentComplete').css('display','inline');
 		$(this).hide();
 	});
 	
@@ -151,9 +155,9 @@ $(document).ready(function() {
 	$('#target').teletype({
 	  text: [
 		'site',
-		'marca',
 		'empresa',
-		'loja'
+		'marca',
+		'comércio'
 	  ]
 	});
 

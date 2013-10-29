@@ -131,8 +131,8 @@ function tem_images($postID) {
 
 // Função para deixar datas iguais a do Facebook
 
-function TimeAgo() { 
-    $post_date = get_the_time('U');
+function TimeAgo($postID) { 
+    $post_date = get_the_time('U', $postID);
     $delta = time() - $post_date;
     if ( $delta < 60 ) {
         echo 'Menos de um minutos atrás';

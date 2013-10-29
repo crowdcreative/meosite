@@ -205,6 +205,10 @@ a:link, a:visited, a:active { text-decoration: none }
     color: #D61F3B !important;
 }
 
+.post-comum{
+    width: 50% !important;
+}
+
 time {
     color: #D61F3B;
     font-family: Gudea,serif;
@@ -448,9 +452,9 @@ body > header {
     font-family: gudea;
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     margin-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 6px;
 }
 .post-single-content {
     font-size: 14px;
@@ -535,13 +539,12 @@ body > header {
 
 .wp-post-image { float: left }
 .featured-thumbnail {
-    max-width: 300px;
     float: none;
     width: 100%;
 }
 #featured-thumbnail {
     float: left;
-    margin-right: 3.5%;
+    margin-right: 4%;
     padding: 0;
     width: 24%;
     -webkit-transition: all 0.25s linear;
@@ -585,9 +588,11 @@ body > header {
  }
 .page h1.title { margin-bottom: 20px }
 .post-info {
-    display: block;
-    font-size: 12px;
     color: #555555;
+    display: inline;
+    font-family: gudea;
+    font-size: 10px;
+    font-style: italic;
 }
 .single-postmeta {
     clear: both;
@@ -1506,7 +1511,7 @@ ol.commentlist { margin-left: 0 }
 }
 @media screen and (max-width:960px) { 
     #page, .container { max-width: 100% }
-    .article { width: 66.3% }
+    .article { width: 55% }
     .sidebar.c-4-12 { width: 30% }
     .related-posts li { margin-right: 10px }
     img, embed {
