@@ -20,29 +20,37 @@
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				
 				
-				<!-- POST link para um artigo externos -->
+<!-- POST LINK ######## -->
+
+
 				<?php if ('link' == get_post_type()){ ?>
 				
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post ebook excerpt">
+					
 						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						
 						<header>
 							<a href="<?php the_field('link_para_o _artigo_externo');  ?>" title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
 							<?php if ( has_post_thumbnail() ) { ?> 
+							
 							<?php echo '<div class="featured-thumbnail">'; the_post_thumbnail('image-link',array('title' => '')); echo '</div>'; ?>
+							
 							<?php } else { ?>
+							
 							<div class="featured-thumbnail">
 							<img width="580" height="300" src="<?php echo get_template_directory_uri(); ?>/images/nothumb.png" class="attachment-featured wp-post-image" alt="<?php the_title(); ?>">
 							</div>
+							
 							<?php } ?>
 							</a>
 					
 							<div class="post-info">
-								<span class="uppercase"><?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">' . $category[0]->cat_name .'</a>';?> </span><span>Por <?php the_author_meta("display_name"); ?></span> 
+								<span class="uppercase"><?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">' . $category[0]->cat_name .'</a>';?> </span><span>Compartilhado por <?php the_author_meta("display_name"); ?></span><span>de</span><span><?php the_field("escrito_por"); ?></span> 
 							</div>
 					
 							<h2 class="title">
-								<a href="<?php the_field('link_para_o _artigo_externo'); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a><span class="leitura help" title="Tempo médio de leitura"><?php echo post_read_time(); ?></span>
+								<a href="<?php the_field('link_para_o _artigo_externo'); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a><span class="leitura help" title="Tempo médio de leitura"><?php the_field("tempo_de_leitura"); ?></span>
 							</h2>
 							
 						</header><!--.header-->
@@ -57,7 +65,9 @@
 					</div><!--.post excerpt-->
 					
 					
-				<!-- POST for um ebook para um artigo externos -->	
+<!-- POST EBOOK ###### -->	
+
+
 				<?php }elseif ('ebooks' == get_post_type()){ ?>  
 				
 					<?php 
@@ -124,7 +134,7 @@
 									echo "<span id='contentComplete'>" . $postContentcomplete . "</span>";
 								?>
 							
-							<div class="caracteristicas"><span><b>Autor:</b> <?php the_field('nome_do_autor'); ?></span> <span><b>Nº de páginas:</b> <?php the_field('paginas');?>pag.</span></div>
+							<div class="caracteristicas"><span><b>Autor:</b> <?php the_field('nome_do_autor'); ?></span> <span><b>Nº de páginas:</b> <?php the_field('paginas');?></span></div>
 							
 							<a class="readMore" href="<?php echo $linkExterno;  ?>" title="<?php the_title(); ?>" rel="nofollow">Ler o livro &rsaquo;</a>
 							
@@ -133,7 +143,10 @@
 					</div><!--.post excerpt-->
 				<?php }else{ ?>
 				
-				<!-- Se o o tipo de post for um Post Comum -->
+				
+				
+<!-- POST COMUM ####### -->
+
 				
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post excerpt">
