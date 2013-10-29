@@ -19,6 +19,9 @@ if ( function_exists('add_theme_support') ) add_theme_support('automatic-feed-li
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 300, 225, true );
 	add_image_size( 'featured', 300, 225, true ); //featured
+	add_image_size( 'image-post-normal', 500, 360 ); //Imagem para post normal
+	add_image_size( 'image-link', 200, 200 ); //Imagem para links
+	add_image_size( 'image-ebook', 500, 1500 ); //Imagem para links
 	add_image_size( 'related', 50, 50, true ); //related
 	}
 
@@ -128,6 +131,8 @@ function tem_images($postID) {
 		return "naotem";
 	}
 }
+
+
 
 // Função para deixar datas iguais a do Facebook
 

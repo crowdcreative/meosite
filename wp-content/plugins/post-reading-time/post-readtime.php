@@ -118,18 +118,18 @@
 			if($seconds >= 30) {
 				$minutes = $minutes + 1;
 			}
-			$estimated_time = $estimated_time.' '.$minutes . ' minuto'. ($minutes == 1 ? '' : 's');
+			$estimated_time = $estimated_time.' '.$minutes . 'min.'. ($minutes == 1 ? '' : 's');
 		}
 		else {
-			$estimated_time = $estimated_time.' '.$minutes . ' minuto'. ($minutes == 1 ? '' : 's') . ', ' . $seconds . ' second' . ($seconds == 1 ? '' : 's');		
+			$estimated_time = $estimated_time.' '.$minutes . 'min.'. ($minutes == 1 ? '' : 's') . ', ' . $seconds . ' second' . ($seconds == 1 ? '' : 's');		
 		}
 		if($minutes < 1) {
-			$estimated_time = " 1 minuto";
+			$estimated_time = " 1min.";
 		}
 
 		$estimated_time = $estimated_time.$suffix;
 		
-		echo "tempo de leitura: " . $estimated_time;
+		echo $estimated_time;
 
 	}
 
