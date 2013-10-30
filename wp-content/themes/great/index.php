@@ -11,7 +11,7 @@
 				// Mais de um posttype em um Loop --> link: http://wordpress.stackexchange.com/questions/103368/query-multiple-custom-post-types-in-single-loop
 
 				global $query_string;
-				$posts = query_posts( array( 'posts_per_page' => -1, 'post_type' => array('post','link','ebooks')));
+				$posts = query_posts( array( 'posts_per_page' => -1, 'post_type' => array('post','link','ebooks','info')));
 
 				
 				?>
@@ -141,6 +141,58 @@
 						</div>
 						
 					</div><!--.post excerpt-->
+					
+				<?php } elseif('info' == get_post_type()){?>
+				
+<!-- POST INFOGRAFICO ####### -->
+
+				
+					<?php $postID =  get_the_ID(); ?>
+					<div class="post comum excerpt">
+						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						<header>
+						
+							<div class="post-info">
+								<span class="uppercase"><?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">' . $category[0]->cat_name .'</a>';?> </span><span>Por <?php the_author_meta("display_name"); ?></span> 
+							</div>
+					
+							<h2 class="title">
+								<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a><span class="leitura help" title="Tempo médio de leitura"><?php echo post_read_time();?></span>
+							</h2>
+						
+							<a href="<?php the_permalink() ?>" class="post-comum"  title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
+							<?php if ( has_post_thumbnail() ) { ?> 
+							<?php echo '<div class="featured-thumbnail">'; the_post_thumbnail('image-post-normal',array('title' => '')); echo '</div>'; ?>
+							<?php } else { ?>
+							<div class="featured-thumbnail">
+							<img width="580" height="300" src="<?php echo get_template_directory_uri(); ?>/images/nothumb.png" class="attachment-featured wp-post-image" alt="<?php the_title(); ?>">
+							</div>
+							<?php } ?>
+							</a>
+					
+						</header><!--.header-->
+						
+						<div class="post-content image-caption-format-1">
+							<?php if (tem_images($postID) == 'tem'){ ?>
+								<?php echo excerpt(35) . "...";?>
+								<a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+							<?php }else{ ?>
+								<?php 
+									// Sistema para mostrar todo o post se ele não tiver imagens
+									$postContent =  get_post_field('post_content', $postID);
+									$postContentpreview = substr($postContent, 0, 220);
+									$postContentcomplete = substr($postContent, 220);
+									echo $postContentpreview . "<span class='pontinhos'>...</span>";
+									echo "<span id='contentComplete'>" . $postContentcomplete . "</span>";
+								?>
+								<a class="readExpander" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+							<?php } ?>
+						</div>
+						
+					</div><!--.post excerpt-->				
+					
+					
+					
 				<?php }else{ ?>
 				
 				
