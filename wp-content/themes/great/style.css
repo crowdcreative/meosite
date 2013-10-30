@@ -205,8 +205,19 @@ a:link, a:visited, a:active { text-decoration: none }
     color: #D61F3B !important;
 }
 
-.post-comum{
-    width: 50% !important;
+.comum .post-comum{
+	margin-top: 10px;
+    width: 100% !important;
+}
+
+.comum .title {
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 5px;
+}
+
+.comum .post-content {
+    float: left;
 }
 
 .post-ebooks{
@@ -222,6 +233,10 @@ a:link, a:visited, a:active { text-decoration: none }
 
 .ebook .post-info{
     width: 71.8%;
+}
+
+.comum .post-info{
+    width: 99.8%;
 }
 
 time {
@@ -499,9 +514,10 @@ body > header {
 }
 
 .readExpander{
-	border-bottom: 1px solid;
+    border-bottom: 1px solid;
     color: #D61F3B;
-    margin-left: 9px;
+    display: inline-block;
+    margin-left: 0;
 	-webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     transition: all 0.25s linear;
