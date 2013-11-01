@@ -25,6 +25,14 @@
 	<div id="rede">
 	
 	</div>
+	
+	<div id="bloqueio">
+		<div class="conteudo">
+			<img src=""/>
+			<div class="fechar">X</div>
+			<div class="topo">Ir para o topo</div>
+		</div>
+	</div>
 
 	<header class="main-header">
 		<div id="header"">

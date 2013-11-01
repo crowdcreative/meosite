@@ -20,7 +20,7 @@ if ( function_exists('add_theme_support') ) add_theme_support('automatic-feed-li
 	set_post_thumbnail_size( 300, 225, true );
 	add_image_size( 'featured', 300, 225, true ); //featured
 	add_image_size( 'image-post-normal', 669, 300, true ); //Imagem para post normal
-	add_image_size( 'image-post-infografico', 669, 99999, true ); //Imagem para inforgraficos
+	add_image_size( 'image-post-infografico', 669, 9999, true ); //Imagem para inforgraficos
 	add_image_size( 'image-link', 200, 200 ); //Imagem para links
 	add_image_size( 'image-ebook', 500, 1500 ); //Imagem para ebooks
 	add_image_size( 'related', 50, 50, true ); //related
@@ -137,28 +137,12 @@ function tem_images($postID) {
 
 // Função para deixar datas iguais a do Facebook
 
-function TimeAgo($postID) { 
-    $post_date = get_the_time('U', $postID);
-    $delta = time() - $post_date;
-    if ( $delta < 60 ) {
-        echo 'Menos de um minutos atrás';
-    }
-    elseif ($delta > 60 && $delta < 120){
-        echo 'Um minuto atrás';
-    }
-    elseif ($delta > 120 && $delta < (60*60)){
-        echo strval(round(($delta/60),0)), ' minutos atrás';
-    }
-    elseif ($delta > (60*60) && $delta < (120*60)){
-        echo 'Há uma hora atrás';
-    }
-    elseif ($delta > (120*60) && $delta < (24*60*60)){
-        echo strval(round(($delta/3600),0)), ' horas atrás';
-    }
-    else {
-        echo the_time('j\<\s\u\p\>S\<\/\s\u\p\> M y g:i a');
-    }
+function time_ago( $type = 'post' ) {
+	$d = 'comment' == $type ? 'get_comment_time' : 'get_post_time';
+	return human_time_diff($d('U'), current_time('timestamp')) . " " . "atrás";
 }
+
+
 
 
 /*-----------------------------------------------------------------------------------*/

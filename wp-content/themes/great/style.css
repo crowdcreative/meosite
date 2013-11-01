@@ -181,6 +181,48 @@ a:link, a:visited, a:active { text-decoration: none }
     position: fixed;
     width: 100%;
 }
+
+#bloqueio{
+	width:100%;
+	height:100%;
+	background:#F5F5ED;
+	position:fixed;
+	display:none;
+	z-index:9999;
+	text-align:center;
+}
+
+#bloqueio .conteudo{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    width: 100%;
+}
+
+#bloqueio .fechar{
+    background: none repeat scroll 0 0 #D90606;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Comic Sans MS,arial;
+    font-weight: bold;
+    left: 50%;
+    margin-left: 310px;
+    padding: 5px 10px;
+    position: fixed;
+    top: 6px;
+    z-index: 999;
+}
+
+#bloqueio .topo{
+    bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    left: 50%;
+    margin-left: 315px;
+    position: fixed;
+    z-index: 999;
+}
 	
 #orcamento{
     background: none repeat scroll 0 0 #D61F3B;
@@ -266,7 +308,6 @@ time {
     overflow: hidden;
 }
 #header .container {
-    border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
     float: left;
     width: 100%;
 }
@@ -462,7 +503,7 @@ body > header {
 /*-[ Content ]--------------------*/
 .article {
     width: 65.6%;
-    float: left;
+    float: right;
     margin-bottom: 10px;
 }
 #content_box {
@@ -472,6 +513,12 @@ body > header {
 .post {
     float: left;
     width: 100%;
+}
+.post .time{
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 12px;
+    font-style: normal;
+    margin: 0 0 0 12px;
 }
 .single_post {
     background-color: #fff;
@@ -499,7 +546,6 @@ body > header {
     float: left;
 }
 .readMore {
-    border-bottom: 1px solid;
     color: #D61F3B;
     display: inline-block;
     margin-left: 0;
@@ -514,7 +560,6 @@ body > header {
 }
 
 .readExpander{
-    border-bottom: 1px solid;
     color: #D61F3B;
     display: inline-block;
     margin-left: 0;
@@ -527,6 +572,25 @@ body > header {
 .readExpander a:hover {
     background: #444;
     color: #fff;
+}
+
+.infoExpander{
+    color: #D61F3B;
+    display: inline-block;
+    margin-left: 0;
+	-webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+	cursor:pointer;
+}
+
+.infoExpander a:hover {
+    background: #444;
+    color: #fff;
+}
+
+#infografico-img{
+	display:none;
 }
 
 #contentComplete{
@@ -982,7 +1046,7 @@ nav #searchform fieldset {
 /*-[ Sidebar ]---------------------*/
 #sidebars p { line-height: 20px }
 .sidebar.c-4-12 {
-    float: right;
+    float: left;
     width: 31.2%;
     max-width: 300px;
 }

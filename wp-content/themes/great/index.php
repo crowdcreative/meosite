@@ -2,6 +2,9 @@
 <?php get_header(); ?>
 <div id="page">
 	<div class="content">
+
+		<?php get_sidebar(); ?>
+		
 		<article class="article">
 			<div id="content_box">
 			
@@ -11,7 +14,7 @@
 				// Mais de um posttype em um Loop --> link: http://wordpress.stackexchange.com/questions/103368/query-multiple-custom-post-types-in-single-loop
 
 				global $query_string;
-				$posts = query_posts( array( 'posts_per_page' => -1, 'post_type' => array('post','link','ebooks','info')));
+				$posts = query_posts( array( 'posts_per_page' => -1, 'post_type' => array('post','link','ebooks','infografico')));
 
 				
 				?>
@@ -28,7 +31,7 @@
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post ebook excerpt">
 					
-						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						
 						
 						<header>
 							<a href="<?php the_field('link_para_o _artigo_externo');  ?>" title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
@@ -57,8 +60,8 @@
 						
 						<div class="post-content image-caption-format-1">
 		
-								<?php echo excerpt(35) . "...";?>
-								<a class="readMore" href="<?php the_field('link_para_o _artigo_externo');  ?>" title="<?php the_title(); ?>" rel="nofollow">Ler mais &rsaquo;</a>
+								<?php echo excerpt(35);?>
+								<a class="readMore" href="<?php the_field('link_para_o _artigo_externo');  ?>" title="<?php the_title(); ?>" rel="nofollow">Ler mais...</a><span class="time"><?php echo time_ago(); ?></span>
 						
 						</div>
 						
@@ -102,7 +105,7 @@
 					
 						
 					
-						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						
 						<header>
 							<a href="<?php echo $linkExterno;  ?>" class="post-ebooks" title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
 							<?php if ( has_post_thumbnail() ) { ?> 
@@ -136,24 +139,24 @@
 							
 							<div class="caracteristicas"><span><b>Autor:</b> <?php the_field('nome_do_autor'); ?></span> <span><b>Nº de páginas:</b> <?php the_field('paginas');?></span></div>
 							
-							<a class="readMore" href="<?php echo $linkExterno;  ?>" title="<?php the_title(); ?>" rel="nofollow">Ler o livro &rsaquo;</a>
+							<a class="readMore" href="<?php echo $linkExterno;  ?>" title="<?php the_title(); ?>" rel="nofollow">Ler o livro &rsaquo;</a><span class="time"><?php echo time_ago(); ?></span>
 							
 						</div>
 						
 					</div><!--.post excerpt-->
 					
-				<?php } elseif('info' == get_post_type()){?>
+				<?php } elseif('infografico' == get_post_type()){?>
 				
 <!-- POST INFOGRAFICO ####### -->
 
 				
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post comum excerpt">
-						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						
 						<header>
 						
 							<div class="post-info">
-								<span class="uppercase"><?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">' . $category[0]->cat_name .'</a>';?> </span><span>Por <?php the_author_meta("display_name"); ?></span> 
+								<span class="uppercase"><?php $category = get_the_category(); echo '<a href="'.get_category_link($category[0]->cat_ID).'">' . $category[0]->cat_name .'</a>';?> </span><span>Compartilhado por <?php the_author_meta("display_name"); ?></span><span>de</span><span><?php the_field("escrito_por"); ?></span>  
 							</div>
 					
 							<h2 class="title">
@@ -173,20 +176,17 @@
 						</header><!--.header-->
 						
 						<div class="post-content image-caption-format-1">
-							<?php if (tem_images($postID) == 'tem'){ ?>
-								<?php echo excerpt(35) . "...";?>
-								<a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
-							<?php }else{ ?>
-								<?php 
-									// Sistema para mostrar todo o post se ele não tiver imagens
-									$postContent =  get_post_field('post_content', $postID);
-									$postContentpreview = substr($postContent, 0, 220);
-									$postContentcomplete = substr($postContent, 220);
-									echo $postContentpreview . "<span class='pontinhos'>...</span>";
-									echo "<span id='contentComplete'>" . $postContentcomplete . "</span>";
-								?>
-								<a class="readExpander" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
-							<?php } ?>
+							
+								<?php echo excerpt(38) . "...";?>
+						
+								<a class="infoExpander" title="<?php the_title(); ?>" imga="<?php the_field('infografico'); ?>" rel="bookmark">Ver infográfico &rsaquo;</a><span class="time"><?php echo time_ago(); ?></span>
+							
+						</div>
+						
+						<div id="infografico-img">
+
+							<img src=""/>
+						
 						</div>
 						
 					</div><!--.post excerpt-->				
@@ -202,7 +202,7 @@
 				
 					<?php $postID =  get_the_ID(); ?>
 					<div class="post comum excerpt">
-						<div class="post-date"><time><?php echo TimeAgo($postID); ?></time></div>
+						
 						<header>
 						
 							<div class="post-info">
@@ -227,18 +227,18 @@
 						
 						<div class="post-content image-caption-format-1">
 							<?php if (tem_images($postID) == 'tem'){ ?>
-								<?php echo excerpt(35) . "...";?>
-								<a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+								<?php echo excerpt(35);?>
+								<a class="readMore" href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">Ler mais...</a><span class="time"><?php echo time_ago(); ?></span>
 							<?php }else{ ?>
 								<?php 
 									// Sistema para mostrar todo o post se ele não tiver imagens
 									$postContent =  get_post_field('post_content', $postID);
 									$postContentpreview = substr($postContent, 0, 220);
 									$postContentcomplete = substr($postContent, 220);
-									echo $postContentpreview . "<span class='pontinhos'>...</span>";
+									echo $postContentpreview;
 									echo "<span id='contentComplete'>" . $postContentcomplete . "</span>";
 								?>
-								<a class="readExpander" title="<?php the_title(); ?>" rel="bookmark">Ler mais &rsaquo;</a>
+								<a class="readExpander" title="<?php the_title(); ?>" rel="bookmark">Ler mais... </a><span class="time"><?php echo time_ago(); ?></span>
 							<?php } ?>
 						</div>
 						
@@ -265,5 +265,5 @@
 				<?php } ?>			
 			</div>
 		</article>
-		<?php get_sidebar(); ?>
+		
 <?php get_footer(); ?>

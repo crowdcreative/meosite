@@ -143,11 +143,33 @@
 	}(jQuery));
 
 $(document).ready(function() {
+	
+	// Abrir resto do texo ao clicar em 'ler mais'
 
 	$('.readExpander').click(function(){
 		$(this).parents('.post').find('.pontinhos').hide();
 		$(this).parents('.post').find('#contentComplete').css('display','inline');
 		$(this).hide();
+	});
+	
+	// Mostrar imagem do infográfico inteiro ao clicar em 'ver infográfico'
+
+	$('.infoExpander').click(function(){
+		var img = $(this).attr('imga');
+		
+		$("html").css({"overflow":"hidden"});
+		$("#bloqueio").fadeIn();
+		$("#bloqueio .conteudo").find('img').attr('src',img);
+		$("#bloqueio .conteudo").scrollTop(0);
+	});
+	
+	$("#bloqueio .fechar").click(function(){
+		$("#bloqueio").fadeOut("slow");
+		$("html").css({"overflow-y":"auto"});
+	});
+	
+	$("#bloqueio .topo").click(function(){
+		$("#bloqueio .conteudo").animate({ scrollTop: 0 }, 800)
 	});
 	
 	// Sistema de escrita automática
