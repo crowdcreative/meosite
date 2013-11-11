@@ -1,5 +1,19 @@
 <?php $options = get_option('great'); ?>
 <?php get_header(); ?>
+
+
+	<div id="introducao">
+		<div id="apresentacao">
+					<div><span id="seusua" style="padding-right: 6px;">Seu</span> <span style="background: #D61F3B; padding: 0px 3px;" id="target"></span> <span style=" padding-right: 6px;">em destaque na internet.</span></div><br/>
+					<span class="small">Encontre profissionais criativos para lhe ajudar;<br>
+					 adquira produtos e serviços para melhorar seu site<br>
+					  ganhe conhecimento para administrar sua marca online.</span>
+				
+				</div>
+	</div>
+
+<div class="main-container">
+
 <div id="page">
 	<div class="content">
 
@@ -11,8 +25,7 @@
 			
 				<?php 
 				
-				// Mais de um posttype em um Loop --> link: http://wordpress.stackexchange.com/questions/103368/query-multiple-custom-post-types-in-single-loop
-
+				// Mais de um posttype em um Loop --> link: http://wordpress.stackexchange.com/quest
 				global $query_string;
 				$posts = query_posts( array( 'posts_per_page' => -1, 'post_type' => array('post','link','ebooks','infografico')));
 
@@ -37,7 +50,8 @@
 							<a href="<?php the_field('link_para_o _artigo_externo');  ?>" title="<?php the_title(); ?>" rel="nofollow" id="featured-thumbnail">
 							<?php if ( has_post_thumbnail() ) { ?> 
 							
-							<?php echo '<div class="featured-thumbnail">'; the_post_thumbnail('image-link',array('title' => '')); echo '</div>'; ?>
+							<?php echo '<div class="featured-tions/103368/query-multiple-custom-post-types-in-single-loop
+humbnail">'; the_post_thumbnail('image-link',array('title' => '')); echo '</div>'; ?>
 							
 							<?php } else { ?>
 							
@@ -265,5 +279,7 @@
 				<?php } ?>			
 			</div>
 		</article>
+
+		
 		
 <?php get_footer(); ?>

@@ -29,6 +29,10 @@
 	
 });
 
+	
+
+
+
 	// Sistema de escrita automática
 
 	var contador = 0;
@@ -115,8 +119,6 @@
 						contador++;
 					}, settings.pause);
 					}else{
-						$("#target").css({"background":"transparent"});
-						$("#target").css({"padding":"0"});
 						seuSua.text('Seu');
 						destacado.text('destacado');
 					}
@@ -143,6 +145,38 @@
 	}(jQuery));
 
 $(document).ready(function() {
+
+	// Fazer a sidebar seguir o scroll
+
+	var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+    $(window).scroll(function (event) {
+        var y = $(this).scrollTop() + 100;
+        //if y > top, it means that if we scroll down any more, parts of our element will be outside the viewport
+        //so we move the element down so that it remains in view.
+      
+        if (y >= top) {
+           	var difference = y - top;
+           	$('#sidebar').css("top",difference);
+       }else{
+       		$('#sidebar').css("top",0);
+       }
+
+       var z = $(this).scrollTop();
+       if (z >= 100) {
+		  $('#main-header').css({"height":"65px"});
+		  $('#main-header').addClass("header-ativo");
+		} else {
+		  $('#main-header').css({"height":"98px"});
+		  $('#main-header').removeClass("header-ativo");
+		}
+   });
+
+
+
+
+	// Alterar tamanho da header e background
+
+
 	
 	// Abrir resto do texo ao clicar em 'ler mais'
 

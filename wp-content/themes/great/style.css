@@ -104,7 +104,7 @@ body {
     line-height: 1;
     font: 14px/19px arial, sans-serif;
     color: #555555;
-    background-color: #F5F5ED !important;
+    background-color: #ffffff !important;
 }
 ::-moz-selection {
     background: #222;
@@ -121,6 +121,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;
+    height: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -170,7 +171,6 @@ a:link, a:visited, a:active { text-decoration: none }
 	-webkit-transition: all 1s linear;
     -moz-transition: all 1s linear;
     transition: all 1s linear;
-	float: left;
     margin-right: 5px;
 }
 
@@ -226,12 +226,13 @@ a:link, a:visited, a:active { text-decoration: none }
 	
 #orcamento{
     background: none repeat scroll 0 0 #D61F3B;
-    border-radius: 3px 3px 3px 3px;
+    border-radius: 3px;
     color: #FFFFFF;
     cursor: pointer;
     float: right;
     font-family: Gudea,serif;
     font-size: 11px;
+    margin: 30px 0 0;
     padding: 6px 10px;
     text-transform: uppercase;
 }
@@ -241,6 +242,7 @@ a:link, a:visited, a:active { text-decoration: none }
     font-family: Gudea,serif;
     font-size: 11px;
 	margin: 50px 0 0;
+    display: none;
 }
 
 .post-info > a {
@@ -290,13 +292,12 @@ time {
 
 .main-container {
    clear: both;
-    margin: 0 auto 30px;
+    margin: 35px auto 30px;
     max-width: 95%;
     padding: 0;
     width: 1020px;
 }
 #page, .container {
-    max-width: 1020px;
     min-width: 240px;
     overflow: visible;
 }
@@ -307,30 +308,37 @@ time {
     clear: both;
     overflow: hidden;
 }
-#header .container {
-    float: left;
-    width: 100%;
-}
+
 /*-[ Header ]-----------------------*/
 body > header {
     float: left;
     width: 100%;
     position: relative;
 }
-.main-header {
-    position: relative;
+#main-header {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     float: left;
+    height: 97px;
+    position: fixed;
     width: 100%;
     z-index: 99;
+    top: 0;
+    left: 0;
 }
 #header {
     position: relative;
     width: 100%;
     float: none;
-    min-height: 100px;
     margin: 0 auto;
-    max-width: 1020px;
+    height: 100%;
 }
+
+.header-ativo{
+    background:none repeat scroll 0 0 rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 #header h1, #header h2 {
     font-size: 38px;
     font-family: signika, sans-serif;
@@ -339,18 +347,33 @@ body > header {
     line-height: 1;
     margin: 15px 0 30px;
 }
+
+#logo{
+    float: left;
+    height: 76%;
+    padding: 10px;
+}
+
 #logo a { text-transform: none }
 
+#logo img {
+    height: 100% !important;
+    padding: 1px;
+}
+
 #apresentacao {
+    color: #F2F2F2;
     float: left;
     font-family: "Gudea",serif;
-    font-size: 14px;
-    margin: 42px 0 0 50px;
-    width: 400px;
+    font-size: 36px;
+    left: 50%;
+    margin: 220px 0 0 -350px;
+    position: absolute;
+    text-align: center;
+    width: 700px;
 }
 #apresentacao span {
-    float: left;
-    line-height: 22px;
+    line-height: 35px;
     margin: 0 0 10px;
 }
 
@@ -361,9 +384,9 @@ body > header {
 
 #apresentacao .small {
     clear: both;
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
-    line-height: 16px !important;
+    line-height: 0 !important;
 }
 
 
@@ -506,6 +529,16 @@ body > header {
     float: right;
     margin-bottom: 10px;
 }
+
+#introducao{
+    background-attachment: scroll;
+    background-image: url("http://aetherthemes.com/demo/visia/images/hero.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 500px;
+    margin: 0;
+}
+
 #content_box {
     float: left;
     width: 100%;
@@ -1045,7 +1078,22 @@ nav #searchform fieldset {
 }
 /*-[ Sidebar ]---------------------*/
 #sidebars p { line-height: 20px }
-.sidebar.c-4-12 {
+
+#sidebar{
+  position: absolute;
+  top: 0;
+  /* just used to show how to include the margin in the effect */
+  margin-top: 20px;
+  border-top: 1px solid purple;
+  padding-top: 19px;
+}
+
+#sidebar .fixed{
+  position: fixed;
+  top: 0;
+}
+
+#sidebar.c-4-12 {
     float: left;
     width: 31.2%;
     max-width: 300px;
@@ -1632,6 +1680,16 @@ ol.commentlist { margin-left: 0 }
 /*-----------------------------------------------
 /* Responsive
 /*---------------------------------------------*/
+
+@media only screen and (min-width: 1224px) {
+body.home .container {
+    width: 1224px;
+}
+body.home .main-container {
+    width: 1224px;
+}
+}
+
 @media screen and (max-width:1020px) { 
     #header, .footer-widgets {
         width: 95.6%;

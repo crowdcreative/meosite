@@ -1,20 +1,19 @@
-<aside class="sidebar c-4-12">
+<div id="sidebar" class="c-4-12">
 <div id="sidebars" class="g">
 	<div class="sidebar">
+
+	<!-- <?php if ( ! dynamic_sidebar( 'Sidebar' )) : ?><?php endif; ?> -->
+	
 	<ul class="sidebar_list">
-		<?php if ( ! dynamic_sidebar( 'Sidebar' )) : ?>
-	
 			<li>
-				
+				teste
 			</li>
 				
 			<li>
-			
+				teste 2
 			</li>
-			
-	
-		<?php endif; ?>
 	</ul>
+
 	</div>
 </div><!--sidebars-->
-</aside>
+</div>
